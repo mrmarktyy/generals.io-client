@@ -1,0 +1,25 @@
+.main-top-right {
+  right: 10px;
+  text-align: right;
+}
+
+.main-top-right > .btn {
+  background: white;
+  margin-bottom: 10px;
+  height: 50px;
+  width: 50px;
+  position: relative;
+}
+
+.main-top-right > .btn .icon-user {
+  font-size: 26px;
+}
+
+.main-top-right > .btn .icon-info {
+  font-size: 35px;
+}
+
+.main-top-right > .btn .leaderboard {
+  height: 28px;
+  width: 28px;
+}

@@ -1,0 +1,28 @@
+#game-chat {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.game-chat-container {
+  max-height: 240px;
+  max-width: 320px;
+  overflow-y: scroll;
+  cursor: pointer;
+}
+
+.game-chat-message {
+  color: white;
+  margin: 5px;
+  text-align: left;
+  font-size: 16px;
+  word-wrap: break-word;
+}
+
+#game-chat-input {
+  font-size: 16px;
+  width: 320px;
+  max-width: 100%;
+  padding: 5px;
+}

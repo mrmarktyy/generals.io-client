@@ -1,0 +1,167 @@
+
+#map {
+  border-spacing: 0px;
+  table-layout: fixed;
+}
+
+#map td {
+  position: relative;
+  border: 1px solid black;
+  width: 50px;
+  height: 50px;
+  max-width: 50px;
+  max-height: 50px;
+  min-width: 50px;
+  min-height: 50px;
+  background: #dcdcdc;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  opacity: 1;
+  padding: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background-size: 40px 40px;
+  user-select: none;
+}
+
+body.z_6 #map td {
+  width: 30px;
+  height: 30px;
+  max-width: 30px;
+  max-height: 30px;
+  min-width: 30px;
+  min-height: 30px;
+  font-size: 10.8px;
+  background-size: 24px 24px;
+}
+
+body.z_8 #map td {
+  width: 40px;
+  height: 40px;
+  max-width: 40px;
+  max-height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  font-size: 14.4px;
+  background-size: 32px 32px;
+}
+
+body.z_10 #map td {
+  width: 50px;
+  height: 50px;
+  max-width: 50px;
+  max-height: 50px;
+  min-width: 50px;
+  min-height: 50px;
+  font-size: 18px;
+  background-size: 40px 40px;
+}
+
+body.z_12 #map td {
+  width: 60px;
+  height: 60px;
+  max-width: 60px;
+  max-height: 60px;
+  min-width: 60px;
+  min-height: 60px;
+  font-size: 21.6px;
+  background-size: 48px 48px;
+}
+
+body.z_14 #map td {
+  width: 70px;
+  height: 70px;
+  max-width: 70px;
+  max-height: 70px;
+  min-width: 70px;
+  min-height: 70px;
+  font-size: 25.2px;
+  background-size: 56px 56px;
+}
+
+body.z_16 #map td {
+  width: 80px;
+  height: 80px;
+  max-width: 80px;
+  max-height: 80px;
+  min-width: 80px;
+  min-height: 80px;
+  font-size: 28.8px;
+  background-size: 64px 64px;
+}
+
+#map td.city,
+#map td.general,
+#map td.mountain,
+#map td.sword,
+#map td.eye,
+#map td.shield,
+#map td.obstacle {
+  background-blend-mode: multiply;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#map td.city {
+  background-color: #808080;
+  background-image: url('/images/city.png');
+}
+
+#map td.general {
+  background-image: url('/images/crown.png');
+}
+
+#map td.mountain {
+  background-image: url('/images/mountain.png');
+  background-color: #bbbbbb;
+}
+
+#map td.sword {
+  background-image: url('/images/sword.png');
+  background-color: #bbbbbb;
+}
+
+#map td.eye {
+  background-image: url('/images/eye.png');
+  background-color: #bbbbbb;
+}
+
+#map td.shield {
+  background-image: url('/images/shield.png');
+  background-color: #bbbbbb;
+}
+
+#map td.obstacle {
+  background-image: url('/images/obstacle.png');
+}
+
+#map td.neutral {
+  background-color: #808080;
+}
+
+#map td.fog {
+  border: 1px solid transparent;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+#map td.selectable,
+#map td.attackable {
+  position: relative;
+  z-index: 20
+}
+
+#map td.selectable:hover,
+#map td.attackable:hover {
+  cursor: pointer
+}
+
+#map td.flag,
+#map td.selected {
+  border: 1px solid white;
+}
+
+#map td.attackable {
+  opacity: 0.4;
+}

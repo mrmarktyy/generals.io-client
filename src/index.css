@@ -1,0 +1,200 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: 'ShangHei', Helvetica, Arial, sans-serif;
+  background-color: #222;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.btn {
+  cursor: pointer;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+.btn.inverted {
+  background: teal;
+  color: white;
+}
+
+.btn.warning {
+  background: #c0392b;
+  color: white;
+}
+
+.btn.round {
+  border-radius: 50%;
+}
+
+.btn.disabled,
+.btn.disabled:hover {
+  cursor: not-allowed;
+  color: white;
+  background: #888888;
+}
+
+.btn:not(.disabled):hover,
+.btn:not(.disabled).selected {
+  background: teal;
+  color: white;
+}
+
+.btn.inverted:not(.disabled):hover {
+  background: white;
+  color: teal;
+}
+
+.btn.warning:not(.disabled):hover {
+  background: white;
+  color: #c0392b;
+}
+
+.border {
+  border-right: 2px solid teal;
+  border-bottom: 2px solid teal;
+}
+
+.border-bottom {
+  border-bottom: 2px solid teal;
+}
+
+input {
+  border: 1px solid #cccccc;
+  color: #222222;
+  outline: 0;
+  transition: border 0.4s ease;
+}
+
+input:focus {
+  border: 1px solid teal;
+}
+
+a,
+a:focus,
+a:hover,
+a:visited {
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+.tabs {
+  margin-bottom: 10px;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.tabs .btn {
+  margin: 0;
+  padding: 10px 20px;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  text-align: -webkit-center;
+}
+
+.center-special {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0) scale(2);
+  zoom: 0.5;
+  text-align: -webkit-center;
+}
+
+.center-vertical {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.center-horizontal {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.fixed-center-horizontal {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.blue {
+  background-color: #2980b9 !important;
+}
+
+.green {
+  background-color: #27ae60 !important;
+}
+
+.red {
+  background-color: #c0392b !important;
+}
+
+.yellow {
+  background-color: #f1c40f !important;
+}
+
+.purple {
+  background-color: #8e44ad !important;
+}
+
+.orange {
+  background-color: #e67e22 !important;
+}
+
+.sea {
+  background-color: #16a085 !important;
+}
+
+.asphalt {
+  background-color: #34495e !important;
+}
+
+.neutral {
+  background-color: #808080 !important;
+}
+
+.user-star {
+  color: #f1c40f;
+}
+
+.source-icon {
+  margin-right: 4px;
+  vertical-align: bottom;
+}

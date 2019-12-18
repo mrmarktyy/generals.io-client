@@ -1,0 +1,67 @@
+@font-face {
+  font-family: 'jq';
+  src:
+    url('/fonts/jq.ttf?p3zhi8') format('truetype'),
+    url('/fonts/jq.woff?p3zhi8') format('woff'),
+    url('/fonts/jq.svg?p3zhi8#jq') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'jq' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-chat:before {
+  content: "\e900";
+}
+.icon-group:before {
+  content: "\e901";
+}
+.icon-info:before {
+  content: "\e902";
+}
+.icon-arrow-left:before {
+  content: "\e314";
+}
+.icon-arrow-right:before {
+  content: "\e315";
+}
+.icon-add-user:before {
+  content: "\e7fe";
+}
+.icon-zoom-in:before {
+  content: "\e037";
+}
+.icon-zoom-out:before {
+  content: "\e038";
+}
+.icon-user:before {
+  content: "\e074";
+}
+.icon-power:before {
+  content: "\e086";
+}
+.icon-trash:before {
+  content: "\e109";
+}
+.icon-plus:before {
+  content: "\e114";
+}
+.icon-minus:before {
+  content: "\e115";
+}
+.icon-cross:before {
+  content: "\e117";
+}

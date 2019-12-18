@@ -1,0 +1,13 @@
+#game-resign {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  font-size: 16px;
+  background: white;
+  color: black;
+  z-index: 25;
+}
+
+#game-resign .btn-resign {
+  padding: 5px 10px;
+}

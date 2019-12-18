@@ -1,0 +1,31 @@
+.game-replay-share-modal .game-replay-share-link {
+  background: teal;
+  color: white;
+  font-size: 22px;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.game-replay-share-modal .game-replay-share-turn {
+  font-size: 17px;
+  margin: 10px 0;
+}
+
+.game-replay-loading-modal h2 {
+  margin: 0;
+}
+
+.game-replay-error-modal .modal-message {
+  text-align: left;
+}
+
+.game-replay-error-modal .replay-id {
+  color: teal;
+  padding: 10px;
+}
+
+.game-replay-share-input {
+  width: 70px;
+  padding: 3px;
+  margin: 0 5px;
+}

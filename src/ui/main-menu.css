@@ -1,0 +1,201 @@
+#main-menu {
+  height: 100%;
+  height: 100vh;
+  width: 100%;
+  width: 100vw;
+  position: relative;
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.5s ease;
+}
+
+#main-menu.open {
+  transform: translate3d(280px, 0, 0);
+}
+
+.main-title {
+  color: white;
+  font-size: 72px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px teal;
+  transition: text-shadow 0.2s ease;
+}
+
+.main-title:hover {
+  text-shadow: 3px 5px teal;
+}
+
+.rank-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 400px;
+  display: flex;
+  flex-direction: row;
+}
+
+.rank-item {
+  flex: 1;
+}
+
+.rank-item h3 {
+  color: white;
+  font-size: 18px;
+  margin: 0;
+}
+
+.rank-item h2 {
+  color: white;
+  font-size: 26px;
+  margin: 0;
+}
+
+.rank-item p {
+  color: white;
+  font-size: 16px;
+  margin: 0;
+}
+
+.main-menu-username-input {
+  text-align: center;
+  font-size: 25px;
+  display: block;
+  margin: 15px 0;
+  padding: 5px 30px;
+  min-width: 300px;
+  color: teal;
+}
+
+.main-menu-server-list {
+  font-size: 16px;
+  outline: 0;
+  display: block;
+  border: none;
+}
+
+.btn-play {
+  background: white;
+  color: teal;
+  display: inline-block;
+  font-size: 32px;
+  margin: 15px 0;
+  padding: 10px 20px;
+}
+
+.main-menu-intro {
+  color: white;
+  font-size: 20px;
+}
+
+.main-menu-intro p {
+  margin: 5px 0;
+}
+
+.main-menu-intro img {
+  width: 25px;
+  margin: 0 5px;
+  vertical-align: bottom;
+}
+
+.modal.main-menu-play-modal {
+  min-width: 300px;
+  user-select: none;
+}
+
+.main-menu-play-modal h3 {
+  font-size: 16px;
+  text-align: left;
+  margin: 0 0 10px 0;
+}
+
+.main-menu-play-modal ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px 0;
+}
+
+.main-menu-play-modal ul li .btn {
+  border: 1px solid teal;
+  padding: 10px 30px;
+}
+
+.main-menu-play-modal ul li p {
+  font-size: 12px;
+  margin: 5px 0;
+}
+
+.main-menu-play-modal ul.single-match li {
+  text-align: left;
+}
+
+.main-menu-play-modal ul.single-match li .btn {
+  padding: 10px 23px;
+}
+
+.modal.main-menu-play-modal .modal-message {
+  color: #888888;
+  font-style: italic;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.main-menu-play-modal .mode-description {
+  min-height: 30px;
+  line-height: 30px;
+  margin: 0;
+}
+
+.main-menu-play-modal .btn-match,
+.main-menu-play-modal .btn-stop {
+  float: right;
+}
+
+.main-menu-play-modal .searching h3 span {
+  float: right;
+}
+
+.main-menu-username-modal p {
+  font-size: 16px;
+}
+.main-menu-username-modal p span {
+  cursor: pointer;
+  color: teal;
+}
+
+.main-bottom {
+  font-size: 18px;
+  position: absolute;
+  bottom: 10px;
+  user-select: none;
+}
+
+.main-bottom > p {
+  color: white;
+  cursor: pointer;
+  margin: 0;
+}
+
+.main-bottom > p:hover {
+  text-decoration: underline;
+}
+
+.main-top {
+  font-size: 18px;
+  position: absolute;
+  top: 10px;
+  user-select: none;
+}
+
+.main-menu-center-bottom {
+  position: absolute;
+  bottom: 10px;
+}
+
+.main-menu-center-bottom a:focus,
+.main-menu-center-bottom a:visited,
+.main-menu-center-bottom a:hover,
+.main-menu-center-bottom a {
+  margin: 0 10px;
+  font-size: 14px;
+  color: white;
+}

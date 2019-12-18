@@ -1,0 +1,52 @@
+.match-info {
+  top: 10%;
+  text-align: -webkit-center;
+}
+
+.match-info h2 {
+  color: white;
+  font-size: 36px;
+}
+
+.match-info .player {
+  color: white;
+  font-size: 20px;
+  margin: 5px 0;
+}
+
+.match-info .player-color {
+  display: inline-block;
+  width: 20px;
+  max-width: 20px;
+  min-width: 20px;
+  height: 10px;
+  margin: 0 20px;
+}
+
+.match-info p {
+  color: white;
+  font-size: 20px;
+  text-align: left;
+}
+
+.match-info .player-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.match-info .player-list li {
+  position: relative;
+  text-align: left;
+}
+
+.match-info .player-list li > div {
+  display: inline-block;
+  color: white;
+  font-size: 20px;
+  margin: 0 10px;
+}
+
+.match-info .match-countdown {
+  font-size: 36px;
+}

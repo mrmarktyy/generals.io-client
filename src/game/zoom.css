@@ -1,0 +1,15 @@
+#game-zoom {
+  display: none;
+  position: fixed;
+  top: 90px;
+  left: 0;
+  font-size: 16px;
+  background: white;
+  color: black;
+  z-index: 25;
+}
+
+#game-zoom .btn {
+  padding: 4px;
+  float: left;
+}

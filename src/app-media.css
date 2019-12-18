@@ -1,0 +1,191 @@
+@media all and (max-width: 767px) {
+  .main-title {
+    font-size: 54px;
+  }
+
+  .main-menu-username-input {
+    min-width: auto;
+    font-size: 20px;
+    margin: 10px 0;
+    width: 80vw;
+  }
+
+  .main-menu-intro {
+    font-size: 14px;
+  }
+
+  .main-menu-intro p {
+    margin: 5px 0;
+  }
+
+  .main-menu-intro img {
+    width: 20px;
+    margin: 0;
+  }
+
+  .btn-play {
+    font-size: 24px;
+    margin: 10px 0;
+  }
+
+  .game-user-modal {
+    min-width: 80vw;
+    max-width: 80vw;
+    width: 80vw;
+  }
+
+  .game-user-modal.game-user-modal-userpanel {
+    height: 50vh;
+  }
+
+  .game-user-modal-info {
+    font-size: 15px;
+  }
+
+  .game-user-modal-avartar .icon-user {
+    font-size: 30px;
+  }
+
+  .game-qq-qun-href {
+    font-size: 14px;
+  }
+
+  .main-menu-center-bottom {
+    display: none;
+  }
+
+  .main-bottom {
+    font-size: 16px;
+  }
+
+  .main-help-modal {
+    padding: 10px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .main-help-modal h3 {
+    margin: 5px 0;
+    font-size: 12px;
+  }
+
+  .main-help-modal p {
+    font-size: 10px;
+  }
+
+  .main-top-right > .btn {
+    width: 30px;
+    height: 30px;
+  }
+
+  .main-top-right > .btn .icon-info,
+  .main-top-right > .btn .icon-user {
+    font-size: 18px;
+  }
+
+  .main-top-right > .btn .leaderboard {
+    width: 18px;
+    height: 18px;
+  }
+
+  .app-system-modal {
+    width: 80vw;
+  }
+
+  .app-system-modal h2 {
+    font-size: 16px;
+  }
+
+  .app-system-modal .general {
+    display: none;
+  }
+
+  .app-system-modal .modal-message {
+    font-size: 12px;
+  }
+
+  #game-replay-table {
+    font-size: 14px;
+  }
+
+  #game-replay-table th:first-child {
+    width: auto;
+  }
+
+  #game-replay-table th:nth-child(2) {
+    min-width: 40px;
+  }
+
+  #game-replay-table td,
+  #game-replay-table th {
+    padding: 0;
+  }
+
+  #game-leaderboard-table tr:first-child th:nth-child(2) {
+    min-width: auto;
+  }
+
+  .tabs .btn {
+    padding: 5px 10px;
+  }
+
+  .main-chat-handler {
+    font-size: 12px;
+    width: 30px;
+  }
+
+  #tutorial {
+    max-width: 80vw;
+    top: 20%;
+  }
+
+  #tutorial p {
+    font-size: 16px;
+  }
+
+  #game-replay-bottom-bar {
+    min-width: 240px;
+  }
+
+  #game-replay-bottom-bar > li {
+    font-size: 14px;
+    min-width: 80px;
+  }
+
+  #game-turn {
+    font-size: 12px;
+    padding: 4px;
+  }
+
+  #game-resign {
+    font-size: 12px;
+  }
+
+  #game-resign .btn-resign {
+    padding: 4px;
+  }
+
+  #game-zoom {
+    display: block;
+  }
+
+  #game-leaderboard td {
+    font-size: 10px;
+  }
+
+  .match-info {
+    width: 80vw;
+  }
+
+  .game-chat-container {
+    max-height: 20vh;
+  }
+
+  .game-chat-message {
+    font-size: 12px;
+  }
+
+  #game-chat-input {
+    font-size: 12px;
+  }
+}

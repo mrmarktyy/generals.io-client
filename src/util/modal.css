@@ -1,0 +1,50 @@
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 50;
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  z-index: 50;
+  min-width: 200px;
+  user-select: initial;
+}
+
+.modal p {
+  margin: 0;
+}
+
+.modal-title {
+  color: #222222;
+  font-size: 24px;
+  margin: 0 0 15px 0;
+}
+
+.modal-title-icon {
+  width: 30px;
+  vertical-align: bottom;
+  margin-right: 10px;
+}
+
+.modal .modal-message {
+  font-size: 16px;
+  color: #222222;
+  margin: 10px 0;
+}
+
+.modal .btn {
+  display: inline-block;
+  font-size: 16px;
+  padding: 10px;
+  margin: 5px;
+}
+
+.modal-footer {
+  margin-top: 10px;
+}

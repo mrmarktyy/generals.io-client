@@ -1,0 +1,22 @@
+.app-system-modal {
+  max-width: 80vw;
+}
+
+.app-system-modal h2 {
+  margin: 0;
+}
+
+.app-system-modal .loader {
+  margin-top: 10px;
+}
+
+.app-system-modal .modal-message {
+  text-align: left;
+}
+
+.app-system-modal .general {
+  width: 70px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
