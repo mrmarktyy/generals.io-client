@@ -1,4 +1,4 @@
-#game-resign {
+#game-surrender {
   position: fixed;
   top: 50px;
   left: 0;
@@ -8,6 +8,6 @@
   z-index: 25;
 }
 
-#game-resign .btn-resign {
+#game-surrender .btn-surrender {
   padding: 5px 10px;
 }

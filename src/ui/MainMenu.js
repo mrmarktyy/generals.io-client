@@ -8,7 +8,6 @@ import Modal from '../util/Modal'
 
 import MainBottomRight from './MainBottomRight'
 import MainBottomLeft from './MainBottomLeft'
-import MainTopLeft from './MainTopLeft'
 
 class MainMenu extends Component {
   constructor(props) {
@@ -31,7 +30,7 @@ class MainMenu extends Component {
       }
     }
 
-    this.subscribe = PubSub.subscribe('user:update', () => this.forceUpdate());
+    this.subscribe = PubSub.subscribe('user:update', () => this.forceUpdate())
   }
 
   componentWillUnmount() {
@@ -72,13 +71,13 @@ class MainMenu extends Component {
     }, 1000)
   }
 
-  stop() {
+  stop = () => {
     this.connector.send({action: 'user:stop_search'})
     this.clear()
   }
 
   clear() {
-    clearTimeout(this.searchingTimer);
+    clearTimeout(this.searchingTimer)
     this.setState({
       searchingStartTime: null,
       ffa: {
@@ -102,17 +101,17 @@ class MainMenu extends Component {
   }
 
   renderPlay() {
-    const { searchingStartTime } = this.state;
+    const { searchingStartTime } = this.state
     if (searchingStartTime) {
-      const totalSecPast = Math.floor((+new Date() - searchingStartTime) / 1000);
-      const sec = (totalSecPast % 60 < 10 ? '0' : '') + (totalSecPast % 60);
-      this.searchingTime = `${Math.floor(totalSecPast / 60)}:${sec}`;
+      const totalSecPast = Math.floor((+new Date() - searchingStartTime) / 1000)
+      const sec = (totalSecPast % 60 < 10 ? '0' : '') + (totalSecPast % 60)
+      this.searchingTime = `${Math.floor(totalSecPast / 60)}:${sec}`
     }
     if (!this.state.match) return null
     return (
       <Modal className="main-menu-play-modal"
         onClose={this.close}
-        title={searchingStartTime ? 'Finding' : 'Choose game mode'}>
+        title={searchingStartTime ? 'Finding' : 'Choose Mode'}>
         {
           searchingStartTime &&
           <div>
@@ -122,14 +121,14 @@ class MainMenu extends Component {
               <p className="modal-message">Matching progress： {this.state.ffa.waiting} / {this.state.ffa.total}</p>
             }
             <div className="modal-footer clearfix">
-              <div className="btn warning btn-stop" onClick={this.stop.bind(this)}>Cancel</div>
+              <div className="btn warning btn-stop" onClick={this.stop}>Cancel</div>
             </div>
           </div>
         }
         {
           !searchingStartTime &&
           <div>
-            <h3>Single Mode</h3>
+            <h3>Play with AI</h3>
             <ul className="single-match">
               <li>
                 <div className={classnames('btn', {selected: config.ai.easy === this.state.mode})} onClick={() => this.setState({ mode: config.ai.easy })}>
@@ -148,7 +147,7 @@ class MainMenu extends Component {
                     <div key={mode} className={classnames('btn', {selected: mode === this.state.mode})} onClick={() => this.setState({ mode })}>
                       {mode}
                     </div>
-                  );
+                  )
                 })}
               </li>
             </ul>
@@ -160,7 +159,7 @@ class MainMenu extends Component {
           </div>
         }
       </Modal>
-    );
+    )
   }
 
   render() {
@@ -185,34 +184,26 @@ class MainMenu extends Component {
         {this.renderPlay()}
         <MainBottomRight version={this.props.route.version} />
         <MainBottomLeft connector={this.connector} />
-        <MainTopLeft />
       </div>
-    );
+    )
   }
 
-  onmessage({type, payload}) {
+  onmessage({ type, payload }) {
     switch (type) {
       case 'game:matched':
-        this.clear();
+        this.clear()
         this.props.router.push({
           pathname: `/g/${payload.id}`,
           state: payload
-        });
-        break;
+        })
+        break
       case 'user:searching':
-        this.setState({ffa: payload});
-        break;
-      case 'team:search':
-        this.interval();
-        this.setState({
-          mode: '2v2',
-          searchingStartTime: +new Date()
-        });
-        break;
+        this.setState({ffa: payload})
+        break
       default:
-        break;
+        break
     }
   }
 }
 
-export default MainMenu;
+export default MainMenu

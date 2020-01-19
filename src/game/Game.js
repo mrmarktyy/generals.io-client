@@ -11,7 +11,7 @@ import Map from './Map';
 import Scroll from './Scroll';
 import Leaderboard from './Leaderboard';
 import Turn from './Turn';
-import Resign from './Resign';
+import Surrender from './Surrender';
 import Zoom from './Zoom';
 import Chat from './Chat';
 
@@ -55,8 +55,8 @@ class Game extends Component {
       counter: 0,
       lost: null,
       won: null,
-      resign: false,
-      resigned: false
+      surrender: false,
+      surrendered: false
     };
   }
 
@@ -162,8 +162,8 @@ class Game extends Component {
     this.map.select(targetTile);
   }
 
-  resign() {
-    this.setState({resign: true});
+  surrender = () => {
+    this.setState({surrender: true})
   }
 
   spectate() {
@@ -172,8 +172,8 @@ class Game extends Component {
   }
 
   confirm() {
-    this.connector.send({action: 'game:resign'});
-    this.setState({resigned: true});
+    this.connector.send({action: 'game:surrender'});
+    this.setState({surrendered: true});
     this.closeModal();
   }
 
@@ -181,7 +181,7 @@ class Game extends Component {
     this.setState({
       lost: false,
       won: false,
-      resign: false
+      surrender: false
     });
   }
 
@@ -190,7 +190,7 @@ class Game extends Component {
   }
 
   render() {
-    const { mode, type, lost, won, resign } = this.state;
+    const { mode, type, lost, won, surrender } = this.state;
     let modal = null;
     if (lost || won) {
       const title = lost ? 'Lost' : 'Victory';
@@ -203,11 +203,11 @@ class Game extends Component {
           <div><div className="btn inverted" onClick={this.toMainMenu}>Exit</div></div>
         </Modal>
       );
-    } else if (resign) {
+    } else if (surrender) {
       modal = (
-        <Modal className="game-resign-modal"
-          onClose={this.closeModal.bind(this)} title="Resign">
-          <p className="modal-message">Are you sure to resign？</p>
+        <Modal className="game-surrender-modal"
+          onClose={this.closeModal.bind(this)} title="Surrender">
+          <p className="modal-message">Are you sure to surrender?</p>
           <div className="modal-footer">
             <div className="btn warning" onClick={this.confirm.bind(this)}>Ok</div>
             <div className="btn inverted" onClick={this.closeModal.bind(this)}>Cancel</div>
@@ -223,7 +223,7 @@ class Game extends Component {
           connector={this.connector} move={this.move.bind(this)} create={this.create.bind(this)}
           updateGameState={this._updateState} />
         <Turn state={this.state} />
-        <Resign state={this.state} resign={this.resign.bind(this)} />
+        <Surrender state={this.state} surrender={this.surrender} />
         <Zoom state={this.state} user={this.user} />
         <Leaderboard state={this.state} />
         {type === 'match' && <Chat connector={this.connector} id={this.state.id} />}

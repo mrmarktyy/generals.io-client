@@ -157,11 +157,11 @@
     padding: 4px;
   }
 
-  #game-resign {
+  #game-surrender {
     font-size: 12px;
   }
 
-  #game-resign .btn-resign {
+  #game-surrender .btn-surrender {
     padding: 4px;
   }
 
