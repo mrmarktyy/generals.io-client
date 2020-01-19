@@ -1,6 +1,6 @@
 export default {
   env: process.env.NODE_ENV,
-  WS_URL: '127.0.0.1',
+  WS_URL: process.env.NODE === 'production' ? '54.79.4.48' : '127.0.0.1',
   WS_PORT: 20000,
   mobile: window.innerWidth <= 480,
   colors: [
