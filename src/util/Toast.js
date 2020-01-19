@@ -1,21 +1,17 @@
-import React, { Component } from 'react';
-import './toast.css';
+import React, { Component } from 'react'
+import classnames from 'classnames';
+import './toast.css'
 
-class Toast extends Component {
-  handleClick(event) {
-    event.stopPropagation();
+export default class Toast extends Component {
+  handleClick (event) {
+    event.stopPropagation()
   }
 
   render() {
-    let classNames = ['toast'];
-    this.props.className && classNames.push(this.props.className);
-    this.props.type && classNames.push(this.props.type);
     return (
-      <div className={classNames.join(' ')} onClick={this.handleClick}>
+      <div className={classnames('toast', this.props.className, this.props.type)} onClick={this.handleClick}>
         {this.props.children}
       </div>
-    );
+    )
   }
 }
-
-export default Toast;

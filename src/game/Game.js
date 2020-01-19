@@ -41,9 +41,6 @@ class Game extends Component {
       map: [],
       cities: [],
       generals: [],
-      swords: [],
-      eyes: [],
-      shields: [],
       tiles: [],
       attackable: [],
       leaderboard: [],
@@ -188,17 +185,8 @@ class Game extends Component {
     });
   }
 
-  toReplay() {
-    const { id, type } = this.state;
-    if (type === 'tutorial') {
-      this.toMainMenu();
-    } else {
-      browserHistory.push(`/r/${id}`);
-    }
-  }
-
   toMainMenu() {
-    browserHistory.push('/');
+    browserHistory.push('/')
   }
 
   render() {
@@ -212,7 +200,6 @@ class Game extends Component {
           clickOutsideToClose={false} title={title}>
           {lost && <p className="modal-message">你被玩家 {lost} 击败了。</p>}
           {showSpectateButton && <div><div className="btn inverted" onClick={this.spectate.bind(this)}></div></div>}
-          <div><div className="btn inverted" onClick={this.toReplay.bind(this)}>Watch replay</div></div>
           <div><div className="btn inverted" onClick={this.toMainMenu}>Exit</div></div>
         </Modal>
       );
@@ -265,7 +252,7 @@ class Game extends Component {
   onmessage({type, payload}) {
     switch (type) {
       case 'game:start': {
-        const { id, mode, map, cities, generals, swords, eyes, shields } = payload;
+        const { id, mode, map, cities, generals } = payload;
         const width = map[0];
         const height = map[1];
         this.setState({
@@ -274,9 +261,6 @@ class Game extends Component {
           map,
           cities,
           generals,
-          swords,
-          eyes,
-          shields,
           width,
           height,
           size: width * height

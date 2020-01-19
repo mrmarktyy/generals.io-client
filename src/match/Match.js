@@ -7,7 +7,6 @@ import './match.css';
 import config from '../util/Config';
 import Notifier from '../util/Notifier';
 import Game from '../game/Game';
-import SourceIcon from '../ui/misc/SourceIcon';
 
 class Match extends Component {
   constructor(props) {
@@ -82,9 +81,7 @@ class Match extends Component {
     const players = matchInfo.players.map(player => {
       return (
         <li key={player.playerIndex}>
-          <div><span className="user-star">★</span>{player.level}</div>
-         <div>
-            <SourceIcon from={player.from} />
+          <div>
             {player.name}
           </div>
           <div className={classNames('center-vertical', this.getColorClassName(player.playerIndex))}></div>

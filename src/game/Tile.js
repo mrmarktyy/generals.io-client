@@ -79,8 +79,8 @@ class Tile extends Component {
 
   render() {
     const { x, y } = this.props;
-    const { width, selected, player_index, is50, flags, cities, generals, swords, eyes,
-      shields, army, terrain, attackable, actions } = this.state;
+    const { width, selected, player_index, is50, flags, cities, generals, 
+      army, terrain, attackable, actions } = this.state;
     const i = x + y * width;
 
     if (!terrain || !army) {
@@ -117,12 +117,6 @@ class Tile extends Component {
       classNames.push('city');
     } else if (generals.indexOf(i) >= 0) {
       classNames.push('general');
-    } else if (swords.indexOf(i) >= 0) {
-      classNames.push('sword');
-    } else if (eyes.indexOf(i) >= 0) {
-      classNames.push('eye');
-    } else if (shields.indexOf(i) >= 0) {
-      classNames.push('shield');
     }
 
     if (terrain[i] > -1) {

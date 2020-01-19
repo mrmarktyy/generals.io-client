@@ -3,7 +3,6 @@ import classNames from 'classnames';
 
 import config from '../util/Config';
 import './leaderboard.css';
-import SourceIcon from '../ui/misc/SourceIcon';
 
 class Leaderboard extends Component {
   render() {
@@ -18,9 +17,8 @@ class Leaderboard extends Component {
       return (
         <tr key={playerIndex}
           className={classNames({dead: deads.indexOf(playerIndex) >= 0, afk: afks.indexOf(playerIndex) >= 0})}>
-          <td><span className="user-star">★</span>{player.level}</td>
+          <td><span className="user-star">★</span>100</td>
           <td className={classNames('leaderboard__name', config.colors[playerIndex])}>
-            <SourceIcon from={player.from} />
             {player.name}
           </td>
           <td>{player.army}</td>

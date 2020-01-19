@@ -95,9 +95,6 @@ body.z_16 #map td {
 #map td.city,
 #map td.general,
 #map td.mountain,
-#map td.sword,
-#map td.eye,
-#map td.shield,
 #map td.obstacle {
   background-blend-mode: multiply;
   background-position: center;
@@ -115,21 +112,6 @@ body.z_16 #map td {
 
 #map td.mountain {
   background-image: url('/images/mountain.png');
-  background-color: #bbbbbb;
-}
-
-#map td.sword {
-  background-image: url('/images/sword.png');
-  background-color: #bbbbbb;
-}
-
-#map td.eye {
-  background-image: url('/images/eye.png');
-  background-color: #bbbbbb;
-}
-
-#map td.shield {
-  background-image: url('/images/shield.png');
   background-color: #bbbbbb;
 }
 

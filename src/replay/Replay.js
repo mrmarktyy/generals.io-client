@@ -60,7 +60,7 @@ class Replay extends Component {
   }
 
   init() {
-    const { mapWidth, mapHeight, cities, generals, swords = [], eyes = [], shields = [], afks } = this.replay;
+    const { mapWidth, mapHeight, cities, generals, afks } = this.replay;
     const { t } = this.props.location.query;
     const tick = t * 2 || 0;
     this.replay.history = this.repair(this.replay.history);
@@ -71,9 +71,6 @@ class Replay extends Component {
       height: mapHeight,
       cities,
       generals,
-      swords,
-      eyes,
-      shields,
       afks
     });
     this.load({tick});
@@ -184,7 +181,6 @@ class Replay extends Component {
     let leaderboard = players.map((player, playerIndex) => {
       return {
         name: player.name,
-        level: player.level,
         land: 0,
         army: 0,
         playerIndex: playerIndex

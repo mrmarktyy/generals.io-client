@@ -16,13 +16,12 @@ import Tutorial from './tutorial/Tutorial';
 
 class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
-    Notifier.init();
-    console.log(config)
-    this.user = new User(config);
-    this.connector = new Connector(config);
-    this.user.bind(this.connector);
+    Notifier.init()
+    this.user = new User(config)
+    this.connector = new Connector(config)
+    this.user.bind(this.connector)
   }
 
   render() {
@@ -33,7 +32,7 @@ class App extends Component {
           <Route path="/tutorial" connector={this.connector} user={this.user} component={Tutorial} />
           <Route path="/g/:id" connector={this.connector} user={this.user} component={Match} />
           <Route path="/r/:id" connector={this.connector} user={this.user} component={Replay} />
-          <Route path="*" connector={this.connector} user={this.user} version={packageJSON.version} component={MainMenu}></Route>
+          <Route path="*" connector={this.connector} user={this.user} version={packageJSON.version} component={MainMenu} />
         </Route>
       </Router>
     );

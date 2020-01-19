@@ -1,83 +1,80 @@
-import React, { Component } from 'react';
-import classNames from 'classnames';
-import PubSub from 'pubsub-js';
+import React, { Component } from 'react'
+import classnames from 'classnames'
+import PubSub from 'pubsub-js'
 
-import './main-menu.css';
-import config from '../util/Config';
-import Modal from '../util/Modal';
+import './main-menu.css'
+import config from '../util/Config'
+import Modal from '../util/Modal'
 
-import MainBottomRight from './MainBottomRight';
-import MainBottomLeft from './MainBottomLeft';
-import MainTopLeft from './MainTopLeft';
+import MainBottomRight from './MainBottomRight'
+import MainBottomLeft from './MainBottomLeft'
+import MainTopLeft from './MainTopLeft'
 
 class MainMenu extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
-    this.user = props.route.user;
-    this.connector = props.route.connector;
-    this.unbind = this.connector.bind('onmessage', this.onmessage.bind(this));
-    this.searchingTimer = null;
-    this.searchingTime = '';
+    this.user = props.route.user
+    this.connector = props.route.connector
+    this.unbind = this.connector.bind('onmessage', this.onmessage.bind(this))
+    this.searchingTimer = null
+    this.searchingTime = ''
     this.state = {
+      name: this.user.getName(),
       mode: null,
-      chat: false,
       match: false,
-      warning: false,
       unread: 0,
       searchingStartTime: null,
       ffa: {
         waiting: '?',
         total: '?'
       }
-    };
+    }
 
     this.subscribe = PubSub.subscribe('user:update', () => this.forceUpdate());
   }
 
   componentWillUnmount() {
     if (this.state.searchingStartTime) {
-      this.stop();
+      this.stop()
     } else {
-      this.clear();
+      this.clear()
     }
-    this.unbind();
-    PubSub.unsubscribe(this.subscribe);
+    this.unbind()
+    PubSub.unsubscribe(this.subscribe)
   }
 
   play() {
     if (!this.user.tutorial) {
-      this.props.router.push('/tutorial');
-      return;
+      this.props.router.push('/tutorial')
+      return
     }
-    this.setState({match: true});
+    this.setState({match: true})
   }
 
   search() {
-    if (this.isSearchDisabled()) {
-      return;
-    }
+    if (!this.state.mode) return
 
-    this.interval();
-    this.setState({searchingStartTime: +new Date()});
+    this.interval()
+    this.setState({ searchingStartTime: +new Date() })
     this.connector.send({
       action: 'user:search',
-      payload: {mode: this.state.mode}
-    });
+      payload: { mode: this.state.mode }
+    })
   }
 
   interval() {
     this.searchingTimer = setTimeout(() => {
-      this.forceUpdate();
+      this.forceUpdate()
       if (this.state.searchingStartTime) {
-        this.interval();
+        this.interval()
       }
-    }, 1000);
+    }, 1000)
   }
 
   stop() {
-    this.connector.send({action: 'user:stop_search'});
-    this.clear();
+    this.connector.send({action: 'user:stop_search'})
+    this.clear()
   }
 
   clear() {
@@ -88,60 +85,20 @@ class MainMenu extends Component {
         waiting: '?',
         total: '?'
       }
-    });
+    })
   }
 
-  handleInputFocus(event) {
-    this.setState({warning: true});
+  close = () => {
+    this.setState({ match: false })
   }
 
-  handleChatHandler(event) {
-    const chat = !this.state.chat;
-    this.setState({chat});
-    if (chat) {
-      this.setState({unread: 0});
-    }
-    event.stopPropagation();
-  }
-
-  receivedMsg() {
-    const { chat, unread } = this.state;
-    if (!chat) {
-      this.setState({unread: unread + 1});
-    }
-  }
-
-  close() {
-    this.setState({match: false, warning: false});
-  }
-
-  selectMode(mode) {
-    this.setState({mode});
-  }
-
-  login() {
-    this.close();
-    PubSub.publish('modal:login');
-  }
-
-  userPanel() {
-    this.close();
-    PubSub.publish('modal:user');
-  }
-
-  isSearchDisabled() {
-    const { mode } = this.state;
-    const teamId = this.user.getTeamId();
-    if (!mode) {
-      return true;
-    }
-    if (mode === '2v2' && !teamId) {
-      return true;
-    }
-    if (mode !== '2v2' && teamId) {
-      return true;
-    }
-    return false;
+  onNameChange = e => {
+    const name = e.target.value
+    this.setState({ name })
+    this.connector.send({
+      action: 'user:update:name',
+      payload: name,
+    })
   }
 
   renderPlay() {
@@ -151,12 +108,10 @@ class MainMenu extends Component {
       const sec = (totalSecPast % 60 < 10 ? '0' : '') + (totalSecPast % 60);
       this.searchingTime = `${Math.floor(totalSecPast / 60)}:${sec}`;
     }
-    if (!this.state.match) {
-      return null;
-    }
+    if (!this.state.match) return null
     return (
       <Modal className="main-menu-play-modal"
-        onClose={this.close.bind(this)}
+        onClose={this.close}
         title={searchingStartTime ? 'Finding' : 'Choose game mode'}>
         {
           searchingStartTime &&
@@ -164,11 +119,10 @@ class MainMenu extends Component {
             <h3>Searching for a competitor <span>{this.searchingTime}</span></h3>
             {
               this.state.mode === 'ffa' &&
-              <p className="modal-message">匹配进度： {this.state.ffa.waiting} / {this.state.ffa.total}</p>
+              <p className="modal-message">Matching progress： {this.state.ffa.waiting} / {this.state.ffa.total}</p>
             }
-            <p className="modal-message">服务器 一 / 普通匹配 / {this.state.mode}</p>
             <div className="modal-footer clearfix">
-              <div className="btn warning btn-stop" onClick={this.stop.bind(this)}>取消</div>
+              <div className="btn warning btn-stop" onClick={this.stop.bind(this)}>Cancel</div>
             </div>
           </div>
         }
@@ -178,10 +132,10 @@ class MainMenu extends Component {
             <h3>Single Mode</h3>
             <ul className="single-match">
               <li>
-                <div className={classNames('btn', {selected: config.ai.easy === this.state.mode})}  onClick={() => this.selectMode(config.ai.easy)}>
+                <div className={classnames('btn', {selected: config.ai.easy === this.state.mode})} onClick={() => this.setState({ mode: config.ai.easy })}>
                   Easy
                 </div>
-                <div className={classNames('btn', {selected: config.ai.normal === this.state.mode})}  onClick={() => this.selectMode(config.ai.normal)}>
+                <div className={classnames('btn', {selected: config.ai.normal === this.state.mode})} onClick={() => this.setState({ mode: config.ai.normal })}>
                   Normal
                 </div>
               </li>
@@ -191,7 +145,7 @@ class MainMenu extends Component {
               <li>
                 {Object.keys(config.modes).map(mode => {
                   return (
-                    <div key={mode} className={classNames('btn', {selected: mode === this.state.mode})} onClick={() => this.selectMode(mode)}>
+                    <div key={mode} className={classnames('btn', {selected: mode === this.state.mode})} onClick={() => this.setState({ mode })}>
                       {mode}
                     </div>
                   );
@@ -199,7 +153,7 @@ class MainMenu extends Component {
               </li>
             </ul>
             <div className="modal-footer clearfix">
-              <div className={classNames('btn', 'btn-match', 'inverted', {disabled: this.isSearchDisabled()})} onClick={this.search.bind(this)}>
+              <div className={classnames('btn', 'btn-match', 'inverted', {disabled: !this.state.mode})} onClick={this.search.bind(this)}>
                 Start matching
               </div>
             </div>
@@ -211,18 +165,16 @@ class MainMenu extends Component {
 
   render() {
     return (
-      <div id="main-menu" className={classNames({open: this.state.chat})}>
+      <div id="main-menu">
         <div className="center">
-          <h1 className="main-title">Generals.io</h1>
-          <input type="text" className={classNames('main-menu-username-input', this.props.location.query.from)}
-            onFocus={this.handleInputFocus.bind(this)}
-            placeholder="visitor" value={this.user.getName()} readOnly />
+          <h1 className="main-title">Generals</h1>
+          <input type="text" className="main-menu-username-input"
+            placeholder="visitor" value={this.state.name} onChange={this.onNameChange} />
           <div className="btn border btn-play" onClick={this.play.bind(this)}>
             {this.state.searchingStartTime ? `Finding a match ${this.searchingTime}` : 'Play'}
           </div>
           <div className="main-menu-intro">
-            <p>Protect your general.</p>
-            <p>Capture enemy generals.<img src="/images/crown_white.png" alt="crown" /></p>
+            <p>Protect your general. Capture enemy generals.</p>
             <p><strong>↑ → ↓ ←</strong> move your troops</p>
             <p>[space] cancel [Q] clear commands [E] clear last command</p>
             <p>[-] zoom out [+] zoom in</p>
@@ -246,10 +198,6 @@ class MainMenu extends Component {
           pathname: `/g/${payload.id}`,
           state: payload
         });
-        break;
-      case 'user:stop_search':
-        this.stop();
-        this.close();
         break;
       case 'user:searching':
         this.setState({ffa: payload});
